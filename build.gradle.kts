@@ -1,8 +1,8 @@
 import java.time.Instant
 
 plugins {
-  id("net.minecraftforge.gradle") version "3.0.184"
-  id("org.spongepowered.mixin")
+  id("net.minecraftforge.gradle") version "3.0.186"
+  id("org.spongepowered.mixin") version "0.7-SNAPSHOT"
   id("signing")
 }
 
