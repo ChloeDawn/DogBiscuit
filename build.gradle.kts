@@ -31,7 +31,7 @@ java {
 }
 
 mixin {
-  add(sourceSets["main"], "mixins/dogbiscuit/refmap.json")
+  add(sourceSets["main"], "mixins.dogbiscuit.refmap.json")
 }
 
 signing {

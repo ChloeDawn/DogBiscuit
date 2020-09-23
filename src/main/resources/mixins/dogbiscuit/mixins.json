@@ -4,5 +4,5 @@
   "required": true,
   "package": "dev.sapphic.dogbiscuit.mixin",
   "mixins": [ "WolfMixin" ],
-  "refmap": "mixins/dogbiscuit/refmap.json"
+  "refmap": "mixins.dogbiscuit.refmap.json"
 }
