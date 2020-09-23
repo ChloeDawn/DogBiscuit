@@ -12,6 +12,7 @@ version = "1.0.0"
 dependencies {
   minecraft("net.minecraftforge:forge:1.16.3-34.0.13")
   implementation("org.checkerframework:checker-qual:3.6.1")
+  annotationProcessor("org.spongepowered:mixin:0.8.1:processor")
 }
 
 minecraft {
