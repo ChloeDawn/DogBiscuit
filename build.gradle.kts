@@ -20,6 +20,7 @@ minecraft {
   runs {
     with(create("client")) {
       workingDirectory = file("run").canonicalPath
+      args("--mixin.config", "mixins.dogbiscuit.mixins.json")
       mods.create("dogbiscuit").source(sourceSets["main"])
     }
   }
@@ -71,7 +72,7 @@ tasks {
       "Implementation-Version" to project.version,
       "Implementation-Vendor" to project.group,
       "Implementation-Timestamp" to "${Instant.now()}",
-      "MixinConnector" to "dev.sapphic.dogbiscuit.DogBiscuitMixins"
+      "MixinConfigs" to "mixins.dogbiscuit.mixins.json"
     ))
     finalizedBy("reobfJar")
   }
