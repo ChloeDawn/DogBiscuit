@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[34,)"
+license="Apache-2.0"
+issueTrackerURL="https://git.io/JUgL5"
+[[mods]]
+  modId="dogbiscuit"
+  version="${file.jarVersion}"
+  displayName="Dog Biscuit"
+  displayURL="https://git.io/JUgLb"
+  logoFile="pack.png"
+  logoBlur=false
+  credits="Texture created by gardrek"
+  authors="Chloe Dawn"
+  description="Adds a dog biscuit"
+  [[dependencies.dogbiscuit]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16,1.17)"
+    side="BOTH"
+  [[dependencies.dogbiscuit]]
+    modId="forge"
+    mandatory=true
+    versionRange="[34,)"
+    side="BOTH"
