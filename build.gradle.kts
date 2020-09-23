@@ -69,7 +69,8 @@ tasks {
       "Implementation-Title" to project.name,
       "Implementation-Version" to project.version,
       "Implementation-Vendor" to project.group,
-      "Implementation-Timestamp" to "${Instant.now()}"
+      "Implementation-Timestamp" to "${Instant.now()}",
+      "MixinConnector" to "dev.sapphic.dogbiscuit.DogBiscuitMixins"
     ))
     finalizedBy("reobfJar")
   }
