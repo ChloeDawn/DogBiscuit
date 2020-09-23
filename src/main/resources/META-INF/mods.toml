@@ -11,7 +11,7 @@ issueTrackerURL="https://git.io/JUgL5"
   logoBlur=false
   credits="Texture created by gardrek"
   authors="Chloe Dawn"
-  description="Adds a dog biscuit"
+  description="Adds a dog biscuit that can be used to tame and heal wolves"
   [[dependencies.dogbiscuit]]
     modId="minecraft"
     mandatory=true
