@@ -31,6 +31,6 @@ abstract class WolfMixin extends TameableEntity implements Angerable {
       target = "Lnet/minecraft/item/Items;BONE:Lnet/minecraft/item/Item;",
       shift = At.Shift.BEFORE))
   private Item interactBiscuitAsBone(final Item item) {
-    return (item == DogBiscuit.biscuit()) ? Items.BONE : item;
+    return (item == DogBiscuit.BISCUIT_ITEM) ? Items.BONE : item;
   }
 }
