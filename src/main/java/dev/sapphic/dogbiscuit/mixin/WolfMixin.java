@@ -2,7 +2,7 @@ package dev.sapphic.dogbiscuit.mixin;
 
 import dev.sapphic.dogbiscuit.DogBiscuit;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.IAngerable;
+import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.passive.WolfEntity;
 import net.minecraft.item.Item;
@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
 @Mixin(WolfEntity.class)
-abstract class WolfMixin extends TameableEntity implements IAngerable {
+abstract class WolfMixin extends TameableEntity implements Angerable {
   WolfMixin(final EntityType<? extends TameableEntity> type, final World level) {
     super(type, level);
   }
@@ -25,7 +25,7 @@ abstract class WolfMixin extends TameableEntity implements IAngerable {
    * @return The bone item if the given item is a dog biscuit
    */
   @ModifyVariable(
-    method = "func_230254_b_",
+    method = "interactMob",
     at = @At(
       value = "FIELD",
       target = "Lnet/minecraft/item/Items;BONE:Lnet/minecraft/item/Item;",

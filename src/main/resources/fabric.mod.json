@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "dogbiscuit",
+  "name": "Dog Biscuit",
+  "version": "$version",
+  "description": "Adds a dog biscuit that can be used to tame and heal wolves",
+  "icon": "pack.png",
+  "license": "Apache-2.0",
+  "depends": {
+    "fabricloader": ">=0.9.3",
+    "minecraft": ">=1.16.3 <1.17"
+  },
+  "entrypoints": {
+    "main": [
+      "dev.sapphic.dogbiscuit.DogBiscuit"
+    ]
+  },
+  "mixins": [
+    "mixins/dogbiscuit/mixins.json"
+  ],
+  "authors": [
+    {
+      "name": "Chloe Dawn",
+      "contact": {
+        "homepage": "https://sapphic.dev"
+      }
+    }
+  ],
+  "contributors": [
+    "gardrek"
+  ],
+  "contact": {
+    "homepage": "https://git.io/JUgLb",
+    "sources": "https://git.io/JUgLb",
+    "issues": "https://git.io/JUgL5"
+  }
+}

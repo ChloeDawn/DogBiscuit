@@ -1,8 +1,7 @@
 import java.time.Instant
 
 plugins {
-  id("net.minecraftforge.gradle") version "3.0.186"
-  id("org.spongepowered.mixin") version "0.7-SNAPSHOT"
+  id("fabric-loom") version "0.5.28"
   id("signing")
 }
 
@@ -10,29 +9,33 @@ group = "dev.sapphic"
 version = "1.0.0"
 
 dependencies {
-  minecraft("net.minecraftforge:forge:1.16.3-34.0.13")
+  fun embeddedApiModule(module: String): Dependency? {
+    val notation = fabricApi.module(module, "0.21.0+build.407-1.16")
+    return modImplementation(include(notation)!!)
+  }
+
+  minecraft("com.mojang:minecraft:1.16.3")
+  mappings("net.fabricmc:yarn:1.16.3+build.17:v2")
+  modImplementation("net.fabricmc:fabric-loader:0.9.3+build.207")
+  embeddedApiModule("fabric-api-base")
+  embeddedApiModule("fabric-networking-v0")
+  embeddedApiModule("fabric-registry-sync-v0")
+  embeddedApiModule("fabric-resource-loader-v0")
+  implementation("org.jetbrains:annotations:20.1.0")
   implementation("org.checkerframework:checker-qual:3.6.1")
-  annotationProcessor("org.spongepowered:mixin:0.8.1:processor")
+  modRuntime("io.github.prospector:modmenu:1.14.6+build.31") {
+    isTransitive = false
+  }
 }
 
 minecraft {
-  mappings("snapshot", "20200916-1.16.2")
-  runs {
-    with(create("client")) {
-      workingDirectory = file("run").canonicalPath
-      args("--mixin.config", "mixins/dogbiscuit/mixins.json")
-      mods.create("dogbiscuit").source(sourceSets["main"])
-    }
-  }
+  refmapName = "mixins/dogbiscuit/refmap.json"
+  runDir = "run"
 }
 
 java {
   sourceCompatibility = JavaVersion.VERSION_1_8
   targetCompatibility = sourceCompatibility
-}
-
-mixin {
-  add(sourceSets["main"], "mixins/dogbiscuit/refmap.json")
 }
 
 signing {
@@ -41,7 +44,7 @@ signing {
 }
 
 tasks {
-  named<JavaCompile>("compileJava") {
+  compileJava {
     with(options) {
       isFork = true
       isDeprecation = true
@@ -52,7 +55,10 @@ tasks {
     }
   }
 
-  named<ProcessResources>("processResources") {
+  processResources {
+    filesMatching("/fabric.mod.json") {
+      expand("version" to project.version)
+    }
     from(sourceSets["main"].resources.single {
       it.name == "biscuit.png"
     }) {
@@ -61,9 +67,9 @@ tasks {
     }
   }
 
-  named<Jar>("jar") {
+  jar {
     from("/LICENSE")
-    archiveClassifier.set("forge")
+    archiveClassifier.set("fabric") // FIXME
     manifest.attributes(mapOf(
       "Specification-Title" to project.name,
       "Specification-Vendor" to project.group,
@@ -71,9 +77,7 @@ tasks {
       "Implementation-Title" to project.name,
       "Implementation-Version" to project.version,
       "Implementation-Vendor" to project.group,
-      "Implementation-Timestamp" to "${Instant.now()}",
-      "MixinConfigs" to "mixins/dogbiscuit/mixins.json"
+      "Implementation-Timestamp" to "${Instant.now()}"
     ))
-    finalizedBy("reobfJar")
   }
 }
