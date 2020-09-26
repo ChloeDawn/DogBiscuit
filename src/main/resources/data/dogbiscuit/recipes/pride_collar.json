@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ROY",
+    "SLS",
+    "GBP"
+  ],
+  "key": {
+    "R": {
+      "item": "minecraft:red_dye"
+    },
+    "O": {
+      "item": "minecraft:orange_dye"
+    },
+    "Y": {
+      "item": "minecraft:yellow_dye"
+    },
+    "G": {
+      "item": "minecraft:green_dye"
+    },
+    "B": {
+      "item": "minecraft:blue_dye"
+    },
+    "P": {
+      "item": "minecraft:purple_dye"
+    },
+    "L": {
+      "item": "minecraft:lead"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "dogbiscuit:pride_collar"
+  }
+}

@@ -16,7 +16,8 @@
     ]
   },
   "mixins": [
-    "mixins/dogbiscuit/mixins.json"
+    "mixins/dogbiscuit/mixins.client.json",
+    "mixins/dogbiscuit/mixins.server.json"
   ],
   "authors": [
     {
